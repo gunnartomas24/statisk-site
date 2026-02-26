@@ -207,7 +207,7 @@ p {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
-.category a {
+.category-grid a {
   font-family:
     system-ui,
     -apple-system,
@@ -223,16 +223,13 @@ p {
   text-decoration: none;
   font-weight: 700;
   font-size: 24px;
-}
-.category-card {
   background-color: seagreen;
   padding: 40px 30px;
-  /* width: 300px; */
   border-radius: 18px;
   color: white;
   transition: 0.2s;
 }
-.category-card:hover {
+.category-grid a:hover {
   background-color: mediumseagreen;
   color: #1f1f1f;
 }
