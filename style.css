@@ -8,9 +8,6 @@ img {
   height: auto;
   display: block;
 }
-body {
-  background: #eeeeee;
-}
 
 @font-face {
   font-family: Roboto;
@@ -240,6 +237,7 @@ p {
   flex-direction: column;
   gap: 2rem;
   padding: 2rem 4rem;
+  margin-bottom: 4rem;
 }
 .card-grid {
   display: grid;
@@ -252,6 +250,12 @@ p {
   gap: 0.5rem;
   text-decoration: none;
   color: #1f1f1f;
+  border: solid #e4e4e4 1px;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+.product-card a:hover {
+  box-shadow: 0 3px 10px #e4e4e4;
 }
 .soldout {
   pointer-events: none;
@@ -362,11 +366,13 @@ p {
 .out-of-stock {
   display: none;
 }
+.load-more,
 .add-to-cart {
   border: none;
   border-radius: 16px;
   background-color: #1f1f1f;
   color: white;
+  width: fit-content;
   padding: 1rem 2rem;
   font-family:
     system-ui,
@@ -383,8 +389,16 @@ p {
   font-weight: 600;
   font-size: 18px;
   margin-top: 16px;
+  transition: all 0.2s ease;
 }
-
+.load-more:hover,
+.add-to-cart:hover {
+  background-color: seagreen;
+}
+.load-container {
+  display: flex;
+  justify-content: center;
+}
 @media screen and (max-width: 800px) {
   .section-categories {
     padding: 1rem 2rem;
