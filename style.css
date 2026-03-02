@@ -336,16 +336,19 @@ p {
 
 /*--------------- product -----------------*/
 .section-product {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-  padding: 2rem 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2rem 16rem;
 }
 .img-container {
   display: flex;
   gap: 2rem;
-  overflow-x: auto;
-  height: 600px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 500px;
+  border: solid #e4e4e4 1px;
 }
 .product-info {
   display: flex;
@@ -399,6 +402,17 @@ p {
   display: flex;
   justify-content: center;
 }
+
+.section-product .salesprice {
+  display: none;
+}
+.section-product .sale .salesprice {
+  display: inline;
+}
+.section-product .sale .price {
+  text-decoration: line-through;
+}
+
 @media screen and (max-width: 800px) {
   .section-categories {
     padding: 1rem 2rem;
