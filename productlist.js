@@ -5,6 +5,11 @@ const cardgrid = document.querySelector(".card-grid");
 const loadMoreBtn = document.querySelector(".load-more");
 const limit = 12;
 let start = 0;
+document
+  .querySelectorAll(".button")
+  .forEach((knap) => knap.addEventListener("click", filter));
+
+let allData;
 
 function getName() {
   nameContainer.textContent = category;
@@ -21,10 +26,13 @@ function getData() {
 
   fetch(url)
     .then((res) => res.json())
-    .then(showProducts);
+    .then((data) => {
+      allData = data;
+      showProducts(allData, start > 0);
+    });
 }
 
-function showProducts(products) {
+function showProducts(products, append = false) {
   let markup = "";
   products.forEach(
     (product) =>
@@ -45,8 +53,20 @@ function showProducts(products) {
             </a>
           </article>`),
   );
-  cardgrid.innerHTML += markup;
+  if (append) cardgrid.insertAdjacentHTML("beforeend", markup);
+  else cardgrid.innerHTML = markup;
 }
+
+function filter(e) {
+  const valgt = e.target.textContent;
+  if (valgt == "All") {
+    showProducts(allData);
+  } else {
+    const udsnit = allData.filter((element) => element.gender == valgt);
+    showProducts(udsnit);
+  }
+}
+
 loadMoreBtn.addEventListener("click", () => {
   start += limit;
   getData();
